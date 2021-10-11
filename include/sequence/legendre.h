@@ -4,8 +4,8 @@
 #include <iostream>
 #include <string>
 #include "sequence.h"
-#include "../tools/power.h"
-#include "../tools/prime.h"
+#include "tools/power.h"
+#include "tools/prime.h"
 
 namespace seqtools {
 
@@ -19,7 +19,7 @@ private:
     int prime_;
 };
 
-Legendre::Legendre(int prime) : prime_(prime) {
+Legendre::Legendre(int prime) : prime_(prime), Sequence(prime) {
     int power = (prime - 1) / 2;
     sequence_ += '0';
     for (int i = 1; i < prime_; ++i) {
