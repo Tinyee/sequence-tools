@@ -12,9 +12,8 @@ namespace seqtools {
 class Legendre : public Sequence {
 public:
     Legendre(int prime);
-    const int get_prime() const {
-        return prime_;
-    }
+    int prime() const { return prime_; }
+    
 private:
     int prime_;
 };
