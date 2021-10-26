@@ -1,5 +1,5 @@
-#ifndef __LEGENDRE_H__
-#define __LEGENDRE_H__
+#ifndef __SEQUENCE_LEGENDRE_H__
+#define __SEQUENCE_LEGENDRE_H__
 
 #include <iostream>
 #include <string>

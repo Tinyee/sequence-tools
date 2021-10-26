@@ -1,5 +1,5 @@
-#ifndef __CORRELATION_H__
-#define __CORRELATION_H__
+#ifndef __PROPERTIES_CORRELATION_H__
+#define __PROPERTIES_CORRELATION_H__
 
 #include <gmpxx.h>
 #include <numeric>

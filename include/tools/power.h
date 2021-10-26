@@ -1,5 +1,5 @@
-#ifndef __POWER_H__
-#define __POWER_H__
+#ifndef __TOOLS_POWER_H__
+#define __TOOLS_POWER_H__
 
 namespace seqtools {
 

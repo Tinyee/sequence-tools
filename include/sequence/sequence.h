@@ -16,10 +16,17 @@ public:
     const std::string& sequence() const { return sequence_; }
     const char* sequence_char() const { return sequence_.c_str(); }
 
+    // bitwise xor
     Sequence operator^(const Sequence& rhs);
     Sequence& operator^=(const Sequence& rhs);
 
+    // splice two sequences
+    Sequence operator+(const Sequence& rhs);
+    Sequence& operator+=(const Sequence& rhs);
+
     const char operator[](int n) const { return sequence_[n % period_]; }
+
+    // change the n-th bit to c
     void change_sequence(int n, char c) { sequence_[n] = c; }
 
     friend std::ostream& operator<<(std::ostream& os, const Sequence& seq) { os << seq.sequence_; }
@@ -45,6 +52,24 @@ Sequence& Sequence::operator^=(const Sequence& rhs)
         sequence_[i] = '0' + ((sequence_[i] - '0') ^ (rhs.sequence_[i] - '0'));
     }
     return *this;
+}
+
+inline Sequence Sequence::operator+(const Sequence& rhs)
+{
+    Sequence tmp(*this);
+    tmp.sequence_ += rhs.sequence_;
+    return tmp;
+}
+
+inline Sequence& Sequence::operator+=(const Sequence& rhs)
+{
+    sequence_ += rhs.sequence_;
+    return *this;
+}
+
+Sequence operator+(const Sequence& lhs, const Sequence& rhs)
+{
+    return lhs + rhs;
 }
 
 }
