@@ -7,6 +7,7 @@
 
 namespace seqtools {
 
+// the exponential representation of FCSR sequence
 class FCSRSequence : public Sequence {
 private:
     int A_;
