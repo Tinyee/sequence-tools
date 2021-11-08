@@ -73,6 +73,11 @@ int euler(int n)
     return sum;
 }
 
+bool is2primitive(int n)
+{
+    return multiplicative_order(2, n) == euler(n);
+}
+
 } // namespace
 
 #endif

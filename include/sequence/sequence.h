@@ -24,11 +24,16 @@ public:
     Sequence operator+(const Sequence& rhs);
     Sequence& operator+=(const Sequence& rhs);
 
-    const char operator[](int n) const { return sequence_[n % period_]; }
+    // n-th bit
+    char operator[](int n) const { return sequence_[n % period_]; }
+
+    // sub-sequence from left to right
+    Sequence sub_sequence(int left, int right) { return sequence_.substr(left, right - left + 1); }
 
     // change the n-th bit to c
     void change_sequence(int n, char c) { sequence_[n] = c; }
 
+    // stream operator
     friend std::ostream& operator<<(std::ostream& os, const Sequence& seq) { os << seq.sequence_; }
     friend std::istream& operator>>(std::istream& is, Sequence& seq) { is >> seq.sequence_; }
 
