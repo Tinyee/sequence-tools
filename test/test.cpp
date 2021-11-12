@@ -1,12 +1,15 @@
-#include "sequence/sequence.h"
+#include "sequence/msequence.h"
+#include "polynomial/primitive.h"
 #include <iostream>
-#include <type_traits>
+#include <vector>
 
 using namespace std;
 
 int main()
 {
-    seqtools::Sequence seq1("100101");
-    seqtools::Sequence seq2("010010");
+    for (auto poly : seqtools::Poly::getPrimitive(5)) {
+        seqtools::MSequence seq(poly, 5);
+        std::cout << seq << endl;
+    }
     return 0;
 }
