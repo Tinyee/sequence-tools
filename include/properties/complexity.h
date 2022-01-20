@@ -4,11 +4,11 @@
 
 namespace seqtools {
 
-// linear complexity
+// linear complexity from NIST
 int BM(const Sequence& seq)
 {
     const Sequence epsilon = seq + seq;
-    int i, j, d, L, m, N_, M = 2 * epsilon.length();
+    int i, j, d, L, m, N_, M = epsilon.length();
     bool* T = NULL, * P = NULL, * B_ = NULL, * C = NULL;
     if (((B_ = (bool*)calloc(M, sizeof(bool))) == NULL) ||
         ((C = (bool*)calloc(M, sizeof(bool))) == NULL) ||

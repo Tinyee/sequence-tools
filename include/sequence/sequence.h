@@ -34,8 +34,14 @@ public:
     void change_sequence(int n, char c) { sequence_[n] = c; }
 
     // stream operator
-    friend std::ostream& operator<<(std::ostream& os, const Sequence& seq) { os << seq.sequence_; }
-    friend std::istream& operator>>(std::istream& is, Sequence& seq) { is >> seq.sequence_; }
+    friend std::ostream& operator<<(std::ostream& os, const Sequence& seq) {
+        os << seq.sequence_;
+        return os;
+    }
+    friend std::istream& operator>>(std::istream& is, Sequence& seq) {
+        is >> seq.sequence_;
+        return is;
+    }
 
 protected:
     int period_;
@@ -74,7 +80,8 @@ inline Sequence& Sequence::operator+=(const Sequence& rhs)
 
 Sequence operator+(const Sequence& lhs, const Sequence& rhs)
 {
-    return lhs + rhs;
+    Sequence tmp(lhs);
+    return tmp.operator+(rhs);
 }
 
 }
