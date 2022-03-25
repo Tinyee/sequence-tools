@@ -24,7 +24,7 @@ void prime_select(int n, std::vector<int>& primes)
     }
 }
 
-// ord_n(q)
+// ord_q(n)
 int multiplicative_order(int q, int n) {
     int i = 1;
     for (; i < q; ++i) {
@@ -35,6 +35,7 @@ int multiplicative_order(int q, int n) {
     return i;
 }
 
+// 将n分解为素数的乘积，factors存储因子及对应数量
 void prime_factorization(int n, std::unordered_map<int, int>& factors) {
     for (int i = 2; n >= i; ++i) {
         while (n % i == 0) {
@@ -44,11 +45,10 @@ void prime_factorization(int n, std::unordered_map<int, int>& factors) {
     }
 }
 
-// 辗转相除法判断是否互质
+// 辗转相除法判断a,b是否互质
 bool is_prime(int a, int b)
 {
     int temp;
-    bool flag = true;
     while (b != 0)
     {
         temp = b;
@@ -56,13 +56,11 @@ bool is_prime(int a, int b)
         a = temp;
     }
     if (a == 1)
-        flag = true;
-    else
-        flag = false;
-    return flag;
+        return true;
+    return false;
 }
 
-// phi(n)
+// \phi(n)
 int euler(int n)
 {
     int sum = 0;
@@ -73,7 +71,7 @@ int euler(int n)
     return sum;
 }
 
-bool is2primitive(int n)
+bool is_2primitive(int n)
 {
     return multiplicative_order(2, n) == euler(n);
 }
